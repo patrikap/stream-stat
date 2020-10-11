@@ -71,5 +71,6 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for more information.
 ## Acknowledgments
 * Inspiration
 * [Laravel official docs](https://laravel.com/docs/8.x)
+* [Принципы построения REST JSON API](https://habr.com/ru/post/447322/)
 
 ## Designed by `Patrikap` with &hearts;
