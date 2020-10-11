@@ -4,30 +4,36 @@ namespace App\Http\Controllers\API\V1;
 
 use App\DataProviders\TwitchStreamDataProvider;
 use App\Http\Controllers\API\AbstractApiController;
+use App\Http\Filters\StreamQueryFilter;
+use App\Models\Stream;
+use App\Http\Resources\StreamResource;
 use App\Services\StreamService;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 
 class StreamController extends AbstractApiController
 {
     /**
      * работа со списком стримов
-     * @param Request $request
+     * @param StreamQueryFilter $filter
      * @return JsonResponse
      */
-    public function index(Request $request): JsonResponse
+    public function index(StreamQueryFilter $filter): JsonResponse
     {
-        return $this->json($request->all());
+        $streams = Stream::filter($filter)->get();
+
+        return $this->json(StreamResource::collection($streams));
     }
 
     /**
      * работа с количеством смотрящих
-     * @param Request $request
+     * @param StreamQueryFilter $filter
      * @return JsonResponse
      */
-    public function viewerCount(Request $request): JsonResponse
+    public function viewerCount(StreamQueryFilter $filter): JsonResponse
     {
-        return $this->json($request->all());
+        $viewerCount = Stream::filter($filter)->sum('viewer_count');
+
+        return $this->json($viewerCount);
     }
 
     /**
@@ -37,7 +43,6 @@ class StreamController extends AbstractApiController
      */
     public function collect(StreamService $service, TwitchStreamDataProvider $dataProvider): void
     {
-        // не выносим
         $service->collect($dataProvider);
     }
 }
