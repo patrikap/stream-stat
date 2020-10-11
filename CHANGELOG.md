@@ -26,7 +26,7 @@ All notable changes to `patrikap/stream-stat` will be documented in this file.
  * документация в `README.md`
  * `*.md` файлы
 
-## Unreleased - 2020-10-12
+## 1.0.0 - 2020-10-12
 Добавлено:
  * контроллер обработки стримов
  * версионирование АПИ
