@@ -13,7 +13,7 @@ Collection of streams statistics
     * ~~количество смотрящих~~
 
  * Система должна предоставлять [~~RESTful JSON API~~](./composer.json "apiator package") со следующей функциональностью:
-    * [~~Авторизация~~](laravel sanctim)
+    * [~~Авторизация~~](./routes/api.php "auth.sanctum")
     * Фильтрация - ???
     * [~~Доступ к методам ограничен по IP адресу~~](./app/Http/Middleware/IPAccess.php)
 
