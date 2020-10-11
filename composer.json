@@ -1,12 +1,24 @@
 {
-    "name": "laravel/laravel",
-    "type": "project",
-    "description": "The Laravel Framework.",
+    "name": "patrikap/stream-stat",
+    "version": "0.0.0",
+    "description": "Service for collection of streams statistics",
     "keywords": [
-        "framework",
-        "laravel"
+        "stream",
+        "twitch",
+        "youtube",
+        "statistic",
+        "patrikap"
     ],
+    "type": "project",
     "license": "MIT",
+    "authors": [
+        {
+            "name": "Konstantin K.",
+            "email": "patrikap@gmail.com",
+            "homepage": "http://patrikap.ru",
+            "role": "Developer"
+        }
+    ],
     "require": {
         "php": "^7.4",
         "ext-json": "*",
