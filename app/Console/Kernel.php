@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Console\Commands\DBCreateCommand;
 use App\Console\Commands\StreamCollectorCommand;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -14,7 +15,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        StreamCollectorCommand::class
+        StreamCollectorCommand::class,
+        DBCreateCommand::class,
     ];
 
     /**
@@ -23,7 +25,7 @@ class Kernel extends ConsoleKernel
      * @param Schedule $schedule
      * @return void
      */
-    protected function schedule(Schedule $schedule):void
+    protected function schedule(Schedule $schedule): void
     {
         $schedule->command('stream:collect')->everyMinute();
     }
@@ -33,7 +35,7 @@ class Kernel extends ConsoleKernel
      *
      * @return void
      */
-    protected function commands():void
+    protected function commands(): void
     {
         $this->load(__DIR__ . '/Commands');
 

@@ -1,12 +1,24 @@
 {
-    "name": "laravel/laravel",
-    "type": "project",
-    "description": "The Laravel Framework.",
+    "name": "patrikap/stream-stat",
+    "version": "0.0.0",
+    "description": "Service for collection of streams statistics",
     "keywords": [
-        "framework",
-        "laravel"
+        "stream",
+        "twitch",
+        "youtube",
+        "statistic",
+        "patrikap"
     ],
+    "type": "project",
     "license": "MIT",
+    "authors": [
+        {
+            "name": "Konstantin K.",
+            "email": "patrikap@gmail.com",
+            "homepage": "http://patrikap.ru",
+            "role": "Developer"
+        }
+    ],
     "require": {
         "php": "^7.4",
         "ext-json": "*",
@@ -53,7 +65,8 @@
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover --ansi"
+            "@php artisan package:discover --ansi",
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
@@ -66,6 +79,11 @@
             "@php artisan config:clear",
             "@php artisan cache:clear",
             "@php artisan route:clear"
+        ],
+        "deploy": [
+            "@php artisan db:create",
+            "@php artisan migrate:refresh --seed",
+            "composer clear"
         ]
     }
 }

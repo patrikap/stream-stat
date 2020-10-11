@@ -65,4 +65,17 @@ class Kernel extends HttpKernel
         // ... some middleware
         'apiator'         => \Patrikap\Apiator\Middleware\ApiatorMiddleware::class,
     ];
+
+    /** @inheritdoc  */
+    protected $middlewarePriority = [
+        \Patrikap\Apiator\Middleware\ApiatorMiddleware::class,
+        \Illuminate\Cookie\Middleware\EncryptCookies::class,
+        \Illuminate\Session\Middleware\StartSession::class,
+        \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+        \Illuminate\Contracts\Auth\Middleware\AuthenticatesRequests::class,
+        \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        \Illuminate\Session\Middleware\AuthenticateSession::class,
+        \Illuminate\Routing\Middleware\SubstituteBindings::class,
+        \Illuminate\Auth\Middleware\Authorize::class,
+    ];
 }
