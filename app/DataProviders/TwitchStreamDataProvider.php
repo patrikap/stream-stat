@@ -111,7 +111,9 @@ class TwitchStreamDataProvider implements StreamDataProviderInterface
         $streams = [];
         foreach ($gameIds as $id) {
             $this->promises[] = $this->getClient()->getAsync('/helix/streams', [
-                'game_id' => $id,
+                'query' => [
+                    'game_id' => $id,
+                ],
             ]);
         }
         $responses = Utils::settle($this->promises)->wait();

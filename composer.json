@@ -1,6 +1,6 @@
 {
     "name": "patrikap/stream-stat",
-    "version": "0.0.0",
+    "version": "1.0.0",
     "description": "Service for collection of streams statistics",
     "keywords": [
         "stream",

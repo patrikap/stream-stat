@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\DB;
  *
  * команда для создания БД
  *
- * @project ss
+ * @project stream-stat
  * @date 11.10.2020 21:58
  * @author Konstantin.K
  */
